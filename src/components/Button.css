@@ -1,0 +1,16 @@
+.button{
+    background: rgb(245, 245, 245);
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 24px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.button:hover{
+    background: rgb(214, 213, 213);
+}
