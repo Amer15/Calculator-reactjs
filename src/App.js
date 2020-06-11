@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Button from './components/Button';
+import Result from './components/Result/Result';
+import Button from './components/Button/Button';
 import './App.css';
 
 
@@ -16,8 +17,18 @@ class App extends Component {
   // functions - calculate , clear/reset, delete
   calculate = () => {
     try {
+      let currentResult = this.state.result;
+      let calculatedResult;
+
+      if (currentResult.includes('/')) {
+        calculatedResult = eval(currentResult).toFixed(2);
+      }
+      else {
+        calculatedResult = eval(currentResult);
+      }
+
       this.setState({
-        result: eval(this.state.result)
+        result: calculatedResult
       })
     } catch (e) {
       this.setState({
@@ -76,7 +87,7 @@ class App extends Component {
     return (
       <div className="main-container">
         <div className="calculator-container">
-          <div className="result-container">{this.state.result}</div>
+          <Result result={this.state.result} />
           <div className="controls-container">
             <div className="row">
               <Button onclick={e => this.onClickHandler(e)}>CE</Button>
@@ -111,7 +122,7 @@ class App extends Component {
           </div>
         </div>
       </div>
-   );
+    );
   }
 }
 

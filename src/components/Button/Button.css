@@ -10,7 +10,3 @@
     border: 1px solid gray;
     cursor: pointer;
 }
-
-.button:hover{
-    background: rgb(214, 213, 213);
-}
